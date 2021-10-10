@@ -1,0 +1,22 @@
+{
+  "include": ["src/**/*", "./rollup.config.ts", "./package.json"],
+  "compilerOptions": {
+    "module": "esnext",
+    "lib": ["dom", "esnext"],
+    "rootDir": ".",
+    "outDir": "./dist",
+    "tsBuildInfoFile": ".cache/.tsbuildinfo",
+    "incremental": true,
+    "declaration": true,
+    "declarationDir": "./dist",
+    "sourceMap": true,
+    "isolatedModules": true,
+    "strict": true,
+    "noEmit": true,
+    "moduleResolution": "node",
+    "jsx": "react-jsx",
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "preserveWatchOutput": true
+  }
+}

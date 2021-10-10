@@ -1,0 +1,2 @@
+.yarn/releases/** filter=lfs diff=lfs merge=lfs -text
+.yarn/plugins/** filter=lfs diff=lfs merge=lfs -text
