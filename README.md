@@ -1,6 +1,6 @@
-# `rci` [WIP]
+# `rci`
 
-> status: Work In Progress
+> **status**: Work In Progress
 
 new take for code inputs on the web.
 
@@ -10,7 +10,7 @@ new take for code inputs on the web.
 |:---:|:---:|:---:|
 |DOM Input|multi-input pattern|rci|
 
-<kbd>rci</kbd> is uses a single DOM input element, most other implementations are based on multiple inputs.
+<kbd>rci</kbd> uses a single DOM input element, most other implementations are based on multiple inputs.
 
 Using multiple inputs gives out-of-the-box style consistency, but comes with the disadvantage of JS hacks to deal with focus shifiting, pasting, etc. It also prevents some [:sparkles:`autocomplete` magic:sparkles:](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete#:~:text=one-time-code) from working, and might also be worse for acessibility.<sup>[citation needed]</sup>
 
