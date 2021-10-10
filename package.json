@@ -1,0 +1,26 @@
+{
+  "private": true,
+  "packageManager": "yarn@3.0.2",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "yarn build && yarn workspaces foreach --verbose --interlaced --parallel run dev",
+    "clean": "yarn workspaces foreach --verbose run clean",
+    "start": "yarn build && yarn docs start",
+    "docs": "yarn workspace docs",
+    "rci": "yarn workspace rci",
+    "use-code-input": "yarn workspace use-code-input"
+  },
+  "prettier": {
+    "printWidth": 80,
+    "semi": false,
+    "singleQuote": true,
+    "jsxSingleQuote": true,
+    "arrowParens": "always",
+    "trailingComma": "all"
+  },
+  "devDependencies": {
+    "typescript": "^4.4.3"
+  }
+}
