@@ -20,4 +20,4 @@ TODO: add codesandbox link here
 
 
 ## Caveats
-The font used must either contain [tabular lining](https://www.fonts.com/content/learning/fontology/level-3/numbers/proportional-vs-tabular-figures)(for numeric values) or be [monospaced](https://en.wikipedia.org/wiki/Monospaced_font)(for alphanumeric values), as the advances widths are assumed to be fixed.
+The font used must either contain [tabular lining](https://www.fonts.com/content/learning/fontology/level-3/numbers/proportional-vs-tabular-figures) (for numeric values) or be [monospaced](https://en.wikipedia.org/wiki/Monospaced_font) (for alphanumeric values), as the advances widths are assumed to be fixed.
