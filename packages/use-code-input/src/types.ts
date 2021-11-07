@@ -1,1 +1,1 @@
-export type SelectionState = readonly [number | null, number | null]
+export type SelectionState = readonly [number, number]
