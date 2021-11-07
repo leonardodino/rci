@@ -1,0 +1,56 @@
+body,
+#root {
+  min-height: 100vh;
+  display: grid;
+  place-items: center center;
+  background: #fff;
+}
+
+@keyframes blink-caret {
+  50% {
+    background: transparent;
+  }
+}
+
+.ExampleUsageCodeInput input {
+  caret-color: transparent;
+}
+
+.ExampleUsageCodeInput input::selection {
+  background-color: transparent;
+}
+
+.ExampleUsageCodeInput .segment {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: #fff;
+  border: 2px solid rgb(209, 213, 219);
+  border-radius: 0.375rem;
+}
+
+.ExampleUsageCodeInput.-focused .segment[data-state='selected'],
+.ExampleUsageCodeInput.-focused .segment[data-state='cursor'] {
+  border-color: rgb(99, 102, 241);
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  box-shadow: rgb(255, 255, 255) 0px 0px 0px 0px,
+    rgb(99, 102, 241) 0px 0px 0px 1px, rgba(0, 0, 0, 0) 0px 0px 0px 0px;
+  display: flex;
+}
+
+.ExampleUsageCodeInput.-focused .segment[data-state='selected'] div {
+  flex: 1;
+  margin: 3px;
+  border-radius: 2px;
+  background-color: rgb(99, 102, 241, 0.15625);
+}
+
+.ExampleUsageCodeInput.-focused .segment[data-state='cursor'] div {
+  flex: 0 0 2px;
+  justify-self: center;
+  margin: 8px auto;
+  width: 2px;
+  background: currentColor;
+  animation: blink-caret 1.2s step-end infinite;
+}
