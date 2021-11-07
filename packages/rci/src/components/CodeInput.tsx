@@ -74,7 +74,26 @@ export const CodeInput = ({
         <RCI.Absolute style={{ zIndex: -1 }}>
           <RCI.SegmentRenderer children={renderSegment} />
         </RCI.Absolute>
-        <RCI.InputScrollWrapper>
+        <RCI.InputScrollWrapper
+          onMouseDownCapture={(event) => {
+            if (event.button !== 0 || event.ctrlKey) return
+            if (event.shiftKey || event.metaKey) return
+            if (!(event.currentTarget instanceof HTMLElement)) return
+            if (!(inputRef.current instanceof HTMLInputElement)) return
+            event.stopPropagation()
+            event.preventDefault()
+            const { left, width } = event.currentTarget.getBoundingClientRect()
+            const eventX = event.clientX - left
+            const index = Math.floor((eventX / width) * length)
+            if (document.activeElement !== inputRef.current) {
+              inputRef.current?.focus()
+            }
+            inputRef.current?.setSelectionRange(index, index + 1)
+          }}
+          onDoubleClickCapture={() => {
+            inputRef.current?.setSelectionRange(0, length)
+          }}
+        >
           <RCI.Input {...rest} {...inputProps} />
         </RCI.InputScrollWrapper>
       </RCI.Root>
