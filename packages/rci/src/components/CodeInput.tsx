@@ -18,6 +18,7 @@ export type CodeInputProps = InputProps & {
   fontFamily?: string
   fontSize?: string
 
+  padding?: string
   paddingY?: string
   paddingX?: string
   spacing?: string
@@ -32,10 +33,11 @@ export type CodeInputProps = InputProps & {
 export const CodeInput = ({
   renderSegment,
   length = 6,
-  fontFamily = "'SF Mono', SFMono-Regular, ui-monospace, monospace",
+  fontFamily = "'SF Mono', SFMono-Regular, ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono', 'Roboto Mono', monospace",
   fontSize = '2rem',
-  paddingY = '0.25rem',
-  paddingX = '0.25rem',
+  padding = '0.25rem',
+  paddingY = padding,
+  paddingX = padding,
   spacing = '0.5rem',
   characterWidth = '1ch',
   style,
@@ -57,21 +59,23 @@ export const CodeInput = ({
     textIndent: paddingX,
     letterSpacing: `calc(${paddingX} * 2 + ${spacing})`,
     lineHeight: `calc(${fontSize} + ${paddingY} * 2)`,
+    zIndex: 0,
   } as const
+
+  const inputProps = {
+    className: inputClassName,
+    style: inputStyle,
+    ref: inputRef,
+  }
 
   return (
     <RCI.Context length={length} selection={selection}>
       <RCI.Root style={rootStyle} className={className}>
-        <RCI.Absolute>
+        <RCI.Absolute style={{ zIndex: -1 }}>
           <RCI.SegmentRenderer children={renderSegment} />
         </RCI.Absolute>
         <RCI.InputScrollWrapper>
-          <RCI.Input
-            {...rest}
-            className={inputClassName}
-            style={inputStyle}
-            ref={inputRef}
-          />
+          <RCI.Input {...rest} {...inputProps} />
         </RCI.InputScrollWrapper>
       </RCI.Root>
     </RCI.Context>
