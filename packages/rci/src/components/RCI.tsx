@@ -16,7 +16,6 @@ export const Absolute = (props: React.ComponentPropsWithoutRef<'div'>) => (
     data-code-input='absolute'
     style={{
       position: 'absolute',
-      zIndex: -1,
       left: 0,
       right: 0,
       top: 0,
@@ -29,12 +28,12 @@ export const Absolute = (props: React.ComponentPropsWithoutRef<'div'>) => (
 )
 
 const handleScroll = (event: React.UIEvent) => {
+  event.preventDefault()
+  event.stopPropagation()
+  event.currentTarget.scrollTop = 0
   event.currentTarget.scrollLeft = 0
 }
-type CodeInputInputScrollWrapperProps = Pick<
-  React.ComponentProps<'div'>,
-  'children' | 'style' | 'className'
->
+type CodeInputInputScrollWrapperProps = React.ComponentProps<'div'>
 export const InputScrollWrapper = (props: CodeInputInputScrollWrapperProps) => {
   return (
     <div
@@ -61,6 +60,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
       <input
         {...props}
         data-code-input='input'
+        minLength={length}
         maxLength={length}
         ref={ref}
         style={{

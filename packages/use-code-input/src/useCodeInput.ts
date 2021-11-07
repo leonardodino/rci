@@ -26,7 +26,21 @@ const transform: Transform = ({ current, previous, value }) => {
     return [start, end + 1]
   }
 
+  // TODO: add switch prop for this behaviour
+  // if (eq(current, [input.maxLength, input.maxLength])) {
+  //  return [input.maxLength -1, input.maxLength]
+  // }
+
   return null
+}
+
+const getSelectionState = (input: HTMLInputElement): SelectionState => {
+  return [+input.selectionStart!, +input.selectionEnd!]
+}
+
+const ZERO: SelectionState = [0, 0]
+const eq = (a: SelectionState, b: SelectionState): boolean => {
+  return a[0] === b[0] && a[1] === b[1]
 }
 
 const useCodeInputHandler = ({
@@ -45,22 +59,16 @@ const useCodeInputHandler = ({
       if (!previous || !input) return
 
       const { selectionDirection: direction, value } = input
-      const current: SelectionState = [input.selectionStart, input.selectionEnd]
+      const current = getSelectionState(input)
 
       const save = (selection: SelectionState): void => {
-        if (selection[0] === previous[0] && selection[1] === previous[1]) {
-          if (selection[0] === 0 && selection[1] === 0) return
-          const DOM: SelectionState = [input.selectionStart, input.selectionEnd]
-          if (selection[0] === DOM[0] && selection[1] === DOM[1]) return
+        if (eq(selection, previous)) {
+          if (eq(selection, ZERO)) return
+          if (eq(selection, getSelectionState(input))) return
         }
         previousRef.current = selection
-        setSelection((state) => {
-          if (state[0] !== selection[0]) return selection
-          if (state[1] !== selection[1]) return selection
-          return state
-        })
-        // @ts-ignore TODO: refactor SelectionState to be [number, number]
-        input.setSelectionRange(...selection, direction)
+        setSelection((state) => (eq(state, selection) ? state : selection))
+        input.setSelectionRange(...selection, direction || undefined)
       }
 
       if (type === 'selectionchange' && document.activeElement !== input) {
@@ -96,7 +104,7 @@ const useCodeInputEffect = ({
     const input = inputRef.current
 
     if (previousRef.current === undefined && input) {
-      previousRef.current = [input.selectionStart, input.selectionEnd]
+      previousRef.current = getSelectionState(input)
     }
 
     const cleanupSelectionChange = selectionChange(handler)
@@ -109,13 +117,9 @@ const useCodeInputEffect = ({
 }
 
 export const useCodeInput = (inputRef: React.RefObject<HTMLInputElement>) => {
-  const [selection, setSelection] = useState<SelectionState>([0, 0])
+  const [selection, setSelection] = useState<SelectionState>(ZERO)
   const previousRef = useRef<SelectionState>()
-  const handler = useCodeInputHandler({
-    inputRef,
-    previousRef,
-    setSelection,
-  })
+  const handler = useCodeInputHandler({ inputRef, previousRef, setSelection })
 
   useCodeInputEffect({ inputRef, previousRef, handler })
 

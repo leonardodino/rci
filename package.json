@@ -7,10 +7,13 @@
   "scripts": {
     "dev": "yarn build && yarn workspaces foreach --verbose --interlaced --parallel run dev",
     "clean": "yarn workspaces foreach --verbose run clean",
+    "typecheck": "yarn workspaces foreach --verbose run typecheck",
     "start": "yarn build && yarn docs start",
     "docs": "yarn workspace docs",
+    "use-code-input": "yarn workspace use-code-input",
+    "use-is-focused": "yarn workspace use-is-focused",
     "rci": "yarn workspace rci",
-    "use-code-input": "yarn workspace use-code-input"
+    "rci-sandbox": "yarn workspace rci-sandbox"
   },
   "prettier": {
     "printWidth": 80,

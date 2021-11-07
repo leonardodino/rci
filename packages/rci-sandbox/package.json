@@ -1,0 +1,23 @@
+{
+  "name": "rci-sandbox",
+  "version": "0.0.0-alpha.3",
+  "stableVersion": "0.0.0-alpha.0",
+  "private": true,
+  "source": "src/index.html",
+  "scripts": {
+    "typecheck": "tsc",
+    "clean": "rm -rf ./dist",
+    "dev": "parcel",
+    "build": "parcel build"
+  },
+  "dependencies": {
+    "modern-normalize": "^1.1.0",
+    "rci": "workspace:packages/rci",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "use-is-focused": "workspace:packages/use-is-focused"
+  },
+  "devDependencies": {
+    "parcel": "^2.0.0"
+  }
+}
