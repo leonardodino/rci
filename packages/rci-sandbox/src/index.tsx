@@ -1,43 +1,28 @@
 import 'modern-normalize'
 import './index.css'
-
-import { useRef } from 'react'
 import { render } from 'react-dom'
+import { Example } from './Example'
 
-import { useIsFocused } from 'use-is-focused'
-import { CodeInput, getSegmentCssWidth } from 'rci'
+const expected = '123123'
+const a11yId = 'code-input'
 
-const ExampleUsage = () => {
-  const padding = '10px'
-  const inputRef = useRef<HTMLInputElement>(null)
-  const focused = useIsFocused(inputRef)
-  const width = getSegmentCssWidth(padding)
+const Page = () => (
+  <div>
+    <h1>
+      <code>rci</code> example
+    </h1>
+    <label htmlFor={a11yId}>
+      authentication code&emsp;<span>expected: {expected}</span>
+    </label>
+    <Example id={a11yId} expected={expected} />
+    <a
+      href='https://github.com/leonardodino/rci'
+      title='leonardodino/rci'
+      style={{ display: 'block', padding: '1rem 0', margin: '2rem 0' }}
+    >
+      <code>rci</code> @ GitHub
+    </a>
+  </div>
+)
 
-  return (
-    <CodeInput
-      className={`ExampleUsageCodeInput ${focused ? '-focused' : ''}`}
-      autoFocus
-      inputRef={inputRef}
-      padding={padding}
-      spacing={padding}
-      spellCheck={false}
-      inputMode='numeric'
-      pattern='[0-9]*'
-      autoComplete='one-time-code'
-      renderSegment={({ state, index }) => {
-        return (
-          <div
-            key={index}
-            className='segment'
-            data-state={state}
-            style={{ width, height: '100%' }}
-          >
-            <div />
-          </div>
-        )
-      }}
-    />
-  )
-}
-
-render(<ExampleUsage />, document.getElementById('root'))
+render(<Page />, document.getElementById('root'))

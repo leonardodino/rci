@@ -7,7 +7,7 @@
   "scripts": {
     "typecheck": "tsc",
     "clean": "rm -rf ./dist",
-    "dev": "parcel",
+    "dev": "parcel serve",
     "build": "parcel build"
   },
   "dependencies": {
