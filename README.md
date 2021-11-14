@@ -1,8 +1,8 @@
-# `rci` <sub><sup>"react code input"</sup></sub>
+# `rci` <sub><sup><sub>"react code input"</sub></sup></sub>
 
 better segmented code inputs for the web. **primary goals**:
 
-- improved acessibility
+- improved accessibility
 - operating system integration
 - consistent, cross-platform, experience
 
@@ -12,9 +12,9 @@ better segmented code inputs for the web. **primary goals**:
 | :-----------------: | :----------------: | :--------: |
 |    regular input    |    multi-input     |    rci     |
 
-<kbd>rci</kbd> uses a single DOM input element, while most other implementations of this pattern are based on multiple inputs.
+<kbd>rci</kbd> uses a single DOM input element, overlayed on top of plain `div`s for styling. most other implementations of this pattern are based on multiple inputs.
 
-using multiple inputs gives out-of-the-box style consistency, but comes with the disadvantage of JavaScript hacks to deal with focus shifiting and pasting, and might have acessibility issues.
+using multiple inputs gives out-of-the-box style consistency, but comes with the disadvantage of JavaScript hacks to deal with focus shifting and pasting, and accessibility issues.
 
 using a single input (<kbd>rci</kbd> approach) allows for:
 
@@ -22,7 +22,7 @@ using a single input (<kbd>rci</kbd> approach) allows for:
 - [:sparkles:`autocomplete` magic:sparkles:](https://www.twilio.com/blog/html-attributes-two-factor-authentication-autocomplete#:~:text=autocomplete%3D%22one-time-code%22)
 - improved accessibility (`<label>`, `tabIndex`, `minLength/maxLength`, etc)
 
-# Demo
+## Demo
 
 https://codesandbox.io/s/rci-codeinput-812up?file=/src/Example.tsx
 
@@ -45,9 +45,7 @@ for styling you can pass a top-level `className` directly to `CodeInput`, all DO
 
 ## Bundle size
 
-despite not being the in the primary goals, the bundle size side is heavily considered while developing, just not at the detriment of the other goals.
-
-All code is published as both ESM modules (tree-shakable, compatibility with current bundlers) and CJS (for legacy compatibility).
+despite not being part of the primary goals, weight is heavily considered while developing.
 
 | package                                                      | size                                                                                                          |
 | :----------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------ |
@@ -57,9 +55,14 @@ All code is published as both ESM modules (tree-shakable, compatibility with cur
 
 ## Caveats
 
-there's currently no support for displaying separators between sequences (example: `   -   `).
+there's currently no support for displaying separators between sequences (example: `___-___`).
 
-for simplicity of implementation and to reduce the amount of CSS the user needs to provide, this component assumes a font with fixed advances for the characters accepted, this means using a [monospaced](https://en.wikipedia.org/wiki/Monospaced_font) or [tabular lining](https://www.fonts.com/content/learning/fontology/level-3/numbers/proportional-vs-tabular-figures) font for numeric values. For alphanumeric values the font must be monospaced.
+for simplicity of implementation and to reduce the amount of CSS the user needs to provide, this component assumes a font with fixed advances for the characters accepted.
+this means using a [monospaced](https://en.wikipedia.org/wiki/Monospaced_font) or [tabular lining](https://www.fonts.com/content/learning/fontology/level-3/numbers/proportional-vs-tabular-figures) font for numeric values.
+for alphanumeric values the font must be monospaced.
+
+this project is still pending a thorough a11y validation.
+for cases in which accessibility is paramount, please use a simple native single input.
 
 <!-- links -->
 
