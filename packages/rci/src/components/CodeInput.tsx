@@ -71,7 +71,7 @@ export const CodeInput = ({
   return (
     <RCI.Context length={length} selection={selection}>
       <RCI.Root style={rootStyle} className={className}>
-        <RCI.Absolute style={{ zIndex: -1 }}>
+        <RCI.Absolute aria-hidden={true} style={{ zIndex: -1 }}>
           <RCI.SegmentRenderer children={renderSegment} />
         </RCI.Absolute>
         <RCI.InputScrollWrapper
