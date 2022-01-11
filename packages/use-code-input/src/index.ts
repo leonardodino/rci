@@ -81,16 +81,6 @@ const useCodeInputHandler = ({
   )
 }
 
-const selectionChange = (handler: (event: Event) => void): (() => void) => {
-  const type = 'selectionchange'
-  if (navigator.userAgent.includes(' Firefox/')) {
-    const interval = setInterval(handler, 16, { type })
-    return () => clearInterval(interval)
-  }
-  document.addEventListener(type, handler)
-  return () => document.removeEventListener(type, handler)
-}
-
 const useCodeInputEffect = ({
   inputRef,
   previousRef,
@@ -107,11 +97,11 @@ const useCodeInputEffect = ({
       previousRef.current = getSelectionState(input)
     }
 
-    const cleanupSelectionChange = selectionChange(handler)
     input?.addEventListener('input', handler)
+    document.addEventListener('selectionchange', handler)
     return () => {
-      cleanupSelectionChange()
       input?.removeEventListener('input', handler)
+      document.removeEventListener('selectionchange', handler)
     }
   }, [inputRef, handler, previousRef])
 }
