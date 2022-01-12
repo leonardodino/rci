@@ -63,6 +63,17 @@ export const Example = ({ id, expected, autoFocus }: ExampleProps) => {
             setTimeout(() => {
               setState('input')
               input.value = ''
+              /* 
+                The focus selection mechanism is launched from 'selectionchange' or 'input' event.
+                If you want to set the input value programmatically, you need to dispatch an 'input' event 
+                to restore the right selection.
+                (BTW The RCI.Input component is not controllable with a value.)
+              */
+              const event = new Event('input', {
+                bubbles: true,
+                cancelable: true,
+              });
+              input.dispatchEvent(event);
               input.focus()
             }, 500)
           })
