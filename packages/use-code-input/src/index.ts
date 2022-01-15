@@ -97,11 +97,12 @@ const useCodeInputEffect = ({
       previousRef.current = getSelectionState(input)
     }
 
-    input?.addEventListener('input', handler)
-    document.addEventListener('selectionchange', handler)
+    const handlerRef = handler // closure ref to added handler
+    input?.addEventListener('input', handlerRef)
+    document.addEventListener('selectionchange', handlerRef)
     return () => {
-      input?.removeEventListener('input', handler)
-      document.removeEventListener('selectionchange', handler)
+      input?.removeEventListener('input', handlerRef)
+      document.removeEventListener('selectionchange', handlerRef)
     }
   }, [inputRef, handler, previousRef])
 }
