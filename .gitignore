@@ -3,7 +3,6 @@
 node_modules
 .cache
 dist
-docs-dist
 .parcel-cache
 package-lock.json
 .nyc_output
