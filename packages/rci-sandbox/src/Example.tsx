@@ -63,6 +63,7 @@ export const Example = ({ id, expected, autoFocus }: ExampleProps) => {
             setTimeout(() => {
               setState('input')
               input.value = ''
+              input.dispatchEvent(new Event('input'))
               input.focus()
             }, 500)
           })
