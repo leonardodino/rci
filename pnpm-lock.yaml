@@ -12,6 +12,7 @@ importers:
 
   packages/rci:
     specifiers:
+      '@types/node': ^17.0.10
       '@types/react': ^17.0.38
       '@types/react-dom': ^17.0.11
       react: ^17.0.2
@@ -24,6 +25,7 @@ importers:
     dependencies:
       use-code-input: link:../use-code-input
     devDependencies:
+      '@types/node': 17.0.10
       '@types/react': 17.0.38
       '@types/react-dom': 17.0.11
       react: 17.0.2
@@ -35,6 +37,8 @@ importers:
 
   packages/rci-sandbox:
     specifiers:
+      '@types/react': ^17.0.38
+      '@types/react-dom': ^17.0.11
       modern-normalize: ^1.1.0
       parcel: ^2.2.1
       postcss: ^8.4.5
@@ -50,10 +54,13 @@ importers:
       react-dom: 17.0.2_react@17.0.2
       use-is-focused: link:../use-is-focused
     devDependencies:
+      '@types/react': 17.0.38
+      '@types/react-dom': 17.0.11
       parcel: 2.2.1_postcss@8.4.5
 
   packages/use-code-input:
     specifiers:
+      '@types/node': ^17.0.10
       '@types/react': ^17.0.38
       '@types/react-dom': ^17.0.11
       react: ^17.0.2
@@ -63,6 +70,7 @@ importers:
       tslib: ^2.3.1
       typescript: ^4.5.4
     devDependencies:
+      '@types/node': 17.0.10
       '@types/react': 17.0.38
       '@types/react-dom': 17.0.11
       react: 17.0.2
@@ -74,6 +82,7 @@ importers:
 
   packages/use-is-focused:
     specifiers:
+      '@types/node': ^17.0.10
       '@types/react': ^17.0.38
       '@types/react-dom': ^17.0.11
       react: ^17.0.2
@@ -83,6 +92,7 @@ importers:
       tslib: ^2.3.1
       typescript: ^4.5.4
     devDependencies:
+      '@types/node': 17.0.10
       '@types/react': 17.0.38
       '@types/react-dom': 17.0.11
       react: 17.0.2
