@@ -7,7 +7,7 @@
     "typecheck": "tsc",
     "clean": "rm -rf ./dist",
     "build": "rollup --configPlugin rollup-plugin-ts --config rollup.config.ts",
-    "dev": "pnpm run build --watch"
+    "dev": "pnpm run build -- --watch"
   },
   "files": [
     "dist",
