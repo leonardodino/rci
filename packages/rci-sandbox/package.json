@@ -18,6 +18,6 @@
     "use-is-focused": "workspace:*"
   },
   "devDependencies": {
-    "parcel": "^2.0.0"
+    "parcel": "^2.2.1"
   }
 }
