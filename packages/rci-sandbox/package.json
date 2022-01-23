@@ -11,10 +11,11 @@
   },
   "dependencies": {
     "modern-normalize": "^1.1.0",
-    "rci": "workspace:packages/rci",
+    "postcss": "^8.4.5",
+    "rci": "workspace:*",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "use-is-focused": "workspace:packages/use-is-focused"
+    "use-is-focused": "workspace:*"
   },
   "devDependencies": {
     "parcel": "^2.0.0"

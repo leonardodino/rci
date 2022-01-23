@@ -31,7 +31,7 @@
     }
   },
   "dependencies": {
-    "use-code-input": "workspace:packages/use-code-input"
+    "use-code-input": "workspace:*"
   },
   "peerDependencies": {
     "react": ">=16.8",
