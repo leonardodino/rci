@@ -71,7 +71,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
           background: 'transparent',
           appearance: 'none',
           display: 'block',
-          width: `200%`,
+          width: `120%`,
           padding: '0',
           margin: '0',
           border: '0 solid transparent',
