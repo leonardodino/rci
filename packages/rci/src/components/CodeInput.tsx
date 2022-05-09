@@ -50,6 +50,8 @@ export const CodeInput = ({
   const selection = useCodeInput(inputRef)
 
   const segmentWidth = `calc(${characterWidth} + ${paddingX} * 2)`
+  const inputWidth = `calc(100% + ${segmentWidth} + ${spacing})`
+
   const rootStyle = {
     ...style,
     position: 'relative',
@@ -94,7 +96,7 @@ export const CodeInput = ({
             inputRef.current?.setSelectionRange(0, length)
           }}
         >
-          <RCI.Input {...rest} {...inputProps} />
+          <RCI.Input width={inputWidth} {...rest} {...inputProps} />
         </RCI.InputScrollWrapper>
       </RCI.Root>
     </RCI.Context>
