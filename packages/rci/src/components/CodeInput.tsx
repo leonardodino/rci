@@ -26,6 +26,12 @@ export type CodeInputProps = InputProps & {
   /** advanced: for browsers which don't support "ch" unit */
   characterWidth?: string
 
+  /** advanced: very few valid reasons to override this for CodeInput */
+  segmentWidth?: string
+
+  /** advanced: can be used if input needs to be larger (example: auto-fill buttons are overlapping input) */
+  inputWidth?: string
+
   inputClassName?: InputProps['className']
   inputStyle?: InputProps['style']
 }
@@ -44,13 +50,12 @@ export const CodeInput = ({
   className,
   inputClassName,
   inputStyle,
+  segmentWidth = `calc(${characterWidth} + ${paddingX} * 2)`,
+  inputWidth = `calc(100% + ${segmentWidth} + ${spacing})`,
   inputRef,
   ...rest
 }: CodeInputProps) => {
   const selection = useCodeInput(inputRef)
-
-  const segmentWidth = `calc(${characterWidth} + ${paddingX} * 2)`
-  const inputWidth = `calc(100% + ${segmentWidth} + ${spacing})`
 
   const rootStyle = {
     ...style,
