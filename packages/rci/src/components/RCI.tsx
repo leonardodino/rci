@@ -59,6 +59,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
     return (
       <input
         {...props}
+        width={undefined}
         data-code-input='input'
         minLength={length}
         maxLength={length}
@@ -71,7 +72,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
           background: 'transparent',
           appearance: 'none',
           display: 'block',
-          width: `200%`,
+          width: props.width ?? '200%',
           padding: '0',
           margin: '0',
           border: '0 solid transparent',
