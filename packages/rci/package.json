@@ -21,12 +21,12 @@
   "sideEffects": false,
   "type": "module",
   "types": "dist/index.d.ts",
-  "main": "dist/cjs/index.js",
+  "main": "dist/cjs/index.cjs",
   "module": "dist/esm/index.js",
   "exports": {
     ".": {
       "import": "./dist/esm/index.js",
-      "require": "./dist/cjs/index.js",
+      "require": "./dist/cjs/index.cjs",
       "types": "./dist/index.d.ts"
     }
   },
