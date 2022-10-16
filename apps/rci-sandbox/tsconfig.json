@@ -2,7 +2,7 @@
   "include": ["src/**/*"],
   "compilerOptions": {
     "module": "esnext",
-    "lib": ["dom", "esnext"],
+    "lib": ["dom", "es2020"],
     "rootDir": ".",
     "outDir": "./dist",
     "tsBuildInfoFile": ".cache/.tsbuildinfo",

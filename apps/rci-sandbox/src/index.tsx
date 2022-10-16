@@ -1,6 +1,6 @@
 import 'modern-normalize'
 import './index.css'
-import { render } from 'react-dom'
+import { createRoot } from 'react-dom/client'
 import { Example } from './Example'
 
 const expected = '123123'
@@ -25,4 +25,5 @@ const Page = () => (
   </div>
 )
 
-render(<Page />, document.getElementById('root'))
+const element = document.getElementById('root')
+if (element) createRoot(element).render(<Page />)

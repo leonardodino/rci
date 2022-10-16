@@ -4,32 +4,7 @@
     "packages/*",
     "apps/*"
   ],
-  "turbo": {
-    "baseBranch": "origin/main",
-    "npmClient": "pnpm",
-    "pipeline": {
-      "build": {
-        "dependsOn": [
-          "^build"
-        ]
-      },
-      "typecheck": {
-        "dependsOn": [
-          "^build"
-        ],
-        "outputs": []
-      },
-      "dev": {
-        "dependsOn": [
-          "^build"
-        ],
-        "cache": false
-      },
-      "clean": {
-        "cache": false
-      }
-    }
-  },
+  "packageManager": "pnpm@7.13.4",
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev",
@@ -45,7 +20,7 @@
     "trailingComma": "all"
   },
   "devDependencies": {
-    "turbo": "^1.0.28",
-    "typescript": "^4.5.4"
+    "turbo": "^1.5.6",
+    "typescript": "^4.8.4"
   }
 }

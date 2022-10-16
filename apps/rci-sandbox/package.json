@@ -6,20 +6,21 @@
   "scripts": {
     "typecheck": "tsc",
     "clean": "rm -rf ./dist",
-    "dev": "parcel serve",
-    "build": "parcel build"
+    "dev": "vite",
+    "build": "vite build"
   },
   "dependencies": {
     "modern-normalize": "^1.1.0",
-    "postcss": "^8.4.5",
+    "postcss": "^8.4.18",
     "rci": "workspace:*",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "use-is-focused": "workspace:*"
   },
   "devDependencies": {
-    "@types/react": "^17.0.38",
-    "@types/react-dom": "^17.0.11",
-    "parcel": "^2.2.1"
+    "@types/react": "^18.0.21",
+    "@types/react-dom": "^18.0.6",
+    "@vitejs/plugin-react": "^2.1.0",
+    "vite": "^3.1.8"
   }
 }
