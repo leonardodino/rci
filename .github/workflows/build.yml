@@ -1,0 +1,21 @@
+name: Build
+
+on: [push, pull_request]
+
+jobs:
+  release:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Install Dependencies
+        uses: pnpm/action-setup@v2.2.4
+        with: {version: '6.28.0', run_install: true}
+
+      - name: Run build
+        run: pnpm run build
+
+      - name: Check Git Status
+        run: git status --porcelain
