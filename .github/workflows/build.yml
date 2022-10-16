@@ -12,7 +12,7 @@ jobs:
 
       - name: Install Dependencies
         uses: pnpm/action-setup@v2.2.4
-        with: {version: '6.28.0', run_install: true}
+        with: { run_install: true }
 
       - name: Run build
         run: pnpm run build

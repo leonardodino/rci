@@ -1,10 +1,13 @@
 {
-  "include": ["src/**/*", "./rollup.config.ts", "./package.json"],
+  "include": ["src/**/*", "./rollup.config.mjs", "./package.json"],
   "compilerOptions": {
+    "lib": ["dom", "es2020"],
     "module": "esnext",
-    "lib": ["dom", "esnext"],
+    "target": "es2020",
     "rootDir": ".",
     "outDir": "./dist",
+    "allowJs": true,
+    "checkJs": true,
     "tsBuildInfoFile": ".cache/.tsbuildinfo",
     "incremental": true,
     "declaration": true,

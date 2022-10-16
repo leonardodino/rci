@@ -9,8 +9,12 @@ export const useLengthContext = () => useContext(LengthContext)
 const SelectionContext = React.createContext<SelectionValue | null>(null)
 export const useSelectionContext = () => useContext(SelectionContext)
 
-type ContextProps = { length: number; selection: SelectionValue }
-export const Context: React.FC<ContextProps> = (props) => (
+type ContextProps = {
+  length: number
+  selection: SelectionValue
+  children?: React.ReactNode | undefined
+}
+export const Context = (props: ContextProps) => (
   <LengthContext.Provider value={props.length}>
     <SelectionContext.Provider value={props.selection}>
       {props.children}
