@@ -1,7 +1,6 @@
 import React from 'react'
 import { useCodeInput } from 'use-code-input'
 import type { RenderSegmentFn } from '../types/RenderSegmentFn'
-
 import * as RCI from './RCI'
 
 export type CodeInputProps = RCI.InputProps & {
@@ -29,6 +28,11 @@ export type CodeInputProps = RCI.InputProps & {
 
   inputClassName?: RCI.InputProps['className']
   inputStyle?: RCI.InputProps['style']
+
+  scrollWrapperClassName?: string
+  segmentWrapperClassName?: string
+
+  rootProps?: Omit<React.ComponentPropsWithRef<'div'>, 'style' | 'className'>
 }
 
 export const CodeInput = ({
@@ -48,6 +52,9 @@ export const CodeInput = ({
   segmentWidth = `calc(${characterWidth} + ${paddingX} * 2)`,
   inputWidth = `calc(100% + ${segmentWidth} + ${spacing})`,
   inputRef,
+  scrollWrapperClassName,
+  segmentWrapperClassName,
+  rootProps,
   ...rest
 }: CodeInputProps) => {
   const selection = useCodeInput(inputRef)
@@ -72,11 +79,12 @@ export const CodeInput = ({
 
   return (
     <RCI.Context length={length} selection={selection}>
-      <RCI.Root style={rootStyle} className={className}>
-        <RCI.Absolute aria-hidden={true} style={{ zIndex: -1 }}>
+      <div {...rootProps} className={className} style={rootStyle}>
+        <RCI.Absolute className={segmentWrapperClassName}>
           <RCI.SegmentRenderer children={renderSegment} />
         </RCI.Absolute>
         <RCI.InputScrollWrapper
+          className={scrollWrapperClassName}
           onMouseDownCapture={(event) => {
             if (event.button !== 0 || event.ctrlKey) return
             if (event.shiftKey || event.metaKey) return
@@ -98,7 +106,7 @@ export const CodeInput = ({
         >
           <RCI.Input width={inputWidth} {...rest} {...inputProps} />
         </RCI.InputScrollWrapper>
-      </RCI.Root>
+      </div>
     </RCI.Context>
   )
 }
