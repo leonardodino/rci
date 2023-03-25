@@ -49,10 +49,11 @@ export const InputScrollWrapper = (props: CodeInputInputScrollWrapperProps) => {
   )
 }
 
-type InputProps = Omit<
+export type InputProps = Omit<
   React.ComponentPropsWithRef<'input'>,
-  'maxLength' | 'children'
+  'maxLength' | 'children' | 'value'
 >
+
 export const Input = React.forwardRef<HTMLInputElement, InputProps>(
   (props, ref) => {
     const length = useLengthContext()
