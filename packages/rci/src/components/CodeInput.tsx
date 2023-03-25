@@ -1,15 +1,10 @@
 import React from 'react'
 import { useCodeInput } from 'use-code-input'
-import { RenderSegmentFn } from '../types/RenderSegmentFn'
+import type { RenderSegmentFn } from '../types/RenderSegmentFn'
 
 import * as RCI from './RCI'
 
-type InputProps = Omit<
-  React.ComponentPropsWithRef<'input'>,
-  'maxLength' | 'children'
->
-
-export type CodeInputProps = InputProps & {
+export type CodeInputProps = RCI.InputProps & {
   inputRef: React.RefObject<HTMLInputElement>
   renderSegment: RenderSegmentFn
 
@@ -32,8 +27,8 @@ export type CodeInputProps = InputProps & {
   /** advanced: can be used if input needs to be larger (example: auto-fill buttons are overlapping input) */
   inputWidth?: string
 
-  inputClassName?: InputProps['className']
-  inputStyle?: InputProps['style']
+  inputClassName?: RCI.InputProps['className']
+  inputStyle?: RCI.InputProps['style']
 }
 
 export const CodeInput = ({
