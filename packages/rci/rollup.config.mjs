@@ -1,5 +1,5 @@
 import ts from 'rollup-plugin-ts'
-import pkg from './package.json' assert { type: "json" }
+import pkg from './package.json' assert { type: 'json' }
 
 const isWatchMode = process.env.ROLLUP_WATCH === 'true'
 
