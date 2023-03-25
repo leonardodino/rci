@@ -1,19 +1,13 @@
 import React from 'react'
 import { RenderSegmentFn } from '../types/RenderSegmentFn'
-
 import { getSegmentArray } from '../utils/getSegmentArray'
 import { useLengthContext, useSelectionContext } from './Context'
-
 export { Context } from './Context'
-
-export const Root = (props: React.ComponentPropsWithoutRef<'div'>) => (
-  <div {...props} data-code-input='root' />
-)
 
 export const Absolute = (props: React.ComponentPropsWithoutRef<'div'>) => (
   <div
     {...props}
-    data-code-input='absolute'
+    aria-hidden={true}
     style={{
       position: 'absolute',
       left: 0,
@@ -22,6 +16,7 @@ export const Absolute = (props: React.ComponentPropsWithoutRef<'div'>) => (
       bottom: 0,
       display: 'flex',
       justifyContent: 'space-between',
+      zIndex: -1,
       ...props.style,
     }}
   />
@@ -38,7 +33,6 @@ export const InputScrollWrapper = (props: CodeInputInputScrollWrapperProps) => {
   return (
     <div
       {...props}
-      data-code-input='input-scroll-wrapper'
       onScroll={handleScroll}
       style={{
         ...props.style,
@@ -53,7 +47,6 @@ export type InputProps = Omit<
   React.ComponentPropsWithRef<'input'>,
   'maxLength' | 'children' | 'value'
 >
-
 export const Input = React.forwardRef<HTMLInputElement, InputProps>(
   (props, ref) => {
     const length = useLengthContext()
@@ -61,7 +54,6 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
       <input
         {...props}
         width={undefined}
-        data-code-input='input'
         minLength={length}
         maxLength={length}
         ref={ref}

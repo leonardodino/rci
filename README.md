@@ -41,7 +41,12 @@ the hook package is intended for usage only in design system projects which wish
 
 packages in this repo don't bundle any built-in style, besides the base minimum for it to function (zIndex, positioning, etc).
 
-for styling you can pass a top-level `className` directly to `CodeInput`, all DOM elements rendered by `CodeInput` contain a `data-code-input` attribute that can be used to target them individually.
+for styling all elements rendered by `CodeInput` have a dedicated `className` prop:
+
+- className
+- inputClassName
+- scrollWrapperClassName
+- segmentWrapperClassName
 
 ## Bundle size
 
