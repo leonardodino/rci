@@ -14,7 +14,7 @@ importers:
       turbo: 1.8.5
       typescript: 5.0.2
 
-  apps/rci-sandbox:
+  apps/demo:
     specifiers:
       '@types/react': ^18.0.29
       '@types/react-dom': ^18.0.11
