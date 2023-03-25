@@ -16,7 +16,7 @@ better segmented code inputs for the web. **primary goals**:
 
 using multiple inputs gives out-of-the-box style consistency, but comes with the disadvantage of JavaScript hacks to deal with focus shifting and pasting, and accessibility issues.
 
-using a single input (<kbd>rci</kbd> approach) allows for:
+**using a single input** (<kbd>rci</kbd> approach) allows for:
 
 - native keyboard shortcuts and selection (including selecting multiple segments)
 - [:sparkles:`autocomplete` magic:sparkles:](https://www.twilio.com/blog/html-attributes-two-factor-authentication-autocomplete#:~:text=autocomplete%3D%22one-time-code%22)
@@ -24,7 +24,9 @@ using a single input (<kbd>rci</kbd> approach) allows for:
 
 ## Demo
 
-https://codesandbox.io/s/rci-codeinput-812up?file=/src/Example.tsx
+https://rci.netlify.app (code [here](https://github.com/leonardodino/rci/blob/main/apps/demo/src/Example.tsx), uses tailwind)
+
+(for vanilla css, see the [codesandbox](https://codesandbox.io/s/rci-codeinput-812up?file=/src/Example.tsx). a nice starter for CSS Modules usage)
 
 ## Packages
 
@@ -43,10 +45,10 @@ packages in this repo don't bundle any built-in style, besides the base minimum 
 
 for styling all elements rendered by `CodeInput` have a dedicated `className` prop:
 
-- className
-- inputClassName
-- scrollWrapperClassName
-- segmentWrapperClassName
+- `className`
+- `inputClassName`
+- `scrollWrapperClassName`
+- `segmentWrapperClassName`
 
 ## Bundle size
 
