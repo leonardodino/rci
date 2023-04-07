@@ -3,7 +3,7 @@
   "compilerOptions": {
     "lib": ["dom", "es2020"],
     "module": "esnext",
-    "target": "es2020",
+    "target": "es2019",
     "rootDir": ".",
     "outDir": "./dist",
     "allowJs": true,
