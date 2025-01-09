@@ -17,6 +17,9 @@ jobs:
       - name: Run build
         run: pnpm run build
 
+      - name: List installed versions
+        run: pnpm --recursive list react react-dom @types/react @types/react-dom
+
       - name: Typecheck (react@18)
         run: pnpm run typecheck
 
@@ -28,6 +31,9 @@ jobs:
 
       - name: Update to latest react
         run: pnpm --recursive update --latest react react-dom @types/react @types/react-dom
+
+      - name: List installed versions
+        run: pnpm --recursive list react react-dom @types/react @types/react-dom
 
       - name: Typecheck (react@latest)
         run: pnpm run typecheck
