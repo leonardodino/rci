@@ -107,7 +107,9 @@ const useCodeInputEffect = ({
   }, [inputRef, handler, previousRef])
 }
 
-export const useCodeInput = (inputRef: React.RefObject<HTMLInputElement | null>) => {
+export const useCodeInput = (
+  inputRef: React.RefObject<HTMLInputElement | null>,
+) => {
   const [selection, setSelection] = useState<SelectionState>(ZERO)
   const previousRef = useRef<SelectionState>()
   const handler = useCodeInputHandler({ inputRef, previousRef, setSelection })
