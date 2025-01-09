@@ -47,7 +47,7 @@ export type InputProps = Omit<
   React.ComponentPropsWithRef<'input'>,
   'maxLength' | 'children' | 'value'
 >
-export const Input = React.forwardRef<HTMLInputElement, InputProps>(
+export const Input = React.forwardRef<HTMLInputElement | null, InputProps>(
   (props, ref) => {
     const length = useLengthContext()
     return (

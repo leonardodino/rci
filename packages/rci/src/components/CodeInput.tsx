@@ -4,7 +4,7 @@ import type { RenderSegmentFn } from '../types/RenderSegmentFn'
 import * as RCI from './RCI'
 
 export type CodeInputProps = RCI.InputProps & {
-  inputRef: React.RefObject<HTMLInputElement>
+  inputRef: React.RefObject<HTMLInputElement | null>
   renderSegment: RenderSegmentFn
 
   length?: number

@@ -48,7 +48,7 @@ const useCodeInputHandler = ({
   previousRef,
   setSelection,
 }: {
-  inputRef: React.RefObject<HTMLInputElement>
+  inputRef: React.RefObject<HTMLInputElement | null>
   previousRef: React.MutableRefObject<SelectionState | undefined>
   setSelection: React.Dispatch<React.SetStateAction<SelectionState>>
 }) => {
@@ -86,7 +86,7 @@ const useCodeInputEffect = ({
   previousRef,
   handler,
 }: {
-  inputRef: React.RefObject<HTMLInputElement>
+  inputRef: React.RefObject<HTMLInputElement | null>
   previousRef: React.MutableRefObject<SelectionState | undefined>
   handler: (event: Event) => void
 }): void => {
@@ -107,9 +107,11 @@ const useCodeInputEffect = ({
   }, [inputRef, handler, previousRef])
 }
 
-export const useCodeInput = (inputRef: React.RefObject<HTMLInputElement>) => {
+export const useCodeInput = (
+  inputRef: React.RefObject<HTMLInputElement | null>,
+) => {
   const [selection, setSelection] = useState<SelectionState>(ZERO)
-  const previousRef = useRef<SelectionState>()
+  const previousRef = useRef<SelectionState | undefined>(undefined)
   const handler = useCodeInputHandler({ inputRef, previousRef, setSelection })
 
   useCodeInputEffect({ inputRef, previousRef, handler })
