@@ -17,8 +17,17 @@ jobs:
       - name: Run build
         run: pnpm run build
 
+      - name: Typecheck (react@18)
+        run: pnpm run typecheck
+
       - name: Lint
         run: pnpm run format -l
 
       - name: Check Git Status
         run: git status --porcelain
+
+      - name: Update to latest react
+        run: pnpm --recursive update --latest react react-dom @types/react @types/react-dom
+
+      - name: Typecheck (react@latest)
+        run: pnpm run typecheck
